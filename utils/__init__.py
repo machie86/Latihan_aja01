@@ -1,0 +1,1 @@
+from .validasi import input_angka
