@@ -1,7 +1,6 @@
 from tabulate import tabulate
 from datetime import datetime
 import random
-
 from utils import input_angka
 # REPORT
 from rich.console import Console
