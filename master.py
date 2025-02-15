@@ -1,7 +1,7 @@
-from tabulate import tabulate
-from datetime import datetime
+from tabulate import tabulate # untuk menampilkan dalam bentuk tabel
+from datetime import datetime # 
 import random
-from utils import input_angka
+
 # REPORT
 from rich.console import Console
 from rich.table import Table

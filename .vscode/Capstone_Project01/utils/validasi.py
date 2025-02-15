@@ -3,6 +3,7 @@
 from tabulate import tabulate # untuk menampilkan dalam bentuk tabel
 from datetime import datetime # 
 import random
+import re
 
 
 def input_angka(prompt, min_value=None, max_value=None):
@@ -19,7 +20,8 @@ def input_angka(prompt, min_value=None, max_value=None):
 def input_string(prompt):
     while True:
         value = input(prompt).strip()
-        if value and all(char.isalpha() or char.isspace() for char in value):
+        # Regex untuk memeriksa apakah input hanya mengandung huruf dan spasi
+        if re.match(r'^[A-Za-z\s]+$', value):
             return value.title()
         print("Input hanya boleh berupa huruf dan spasi. Silakan coba lagi.")
 

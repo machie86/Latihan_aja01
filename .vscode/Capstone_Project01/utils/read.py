@@ -58,7 +58,7 @@ def filter_data_menu():
 
         if not data_tampil:
             print("Tidak ada data yang sesuai dengan kriteria filter.")
-            return
+            continue
 
         if not konfirmasi("Apakah Anda ingin menambahkan filter lainnya? (ya/tidak): "):
             break

@@ -23,7 +23,7 @@ data_keuangan = [
 # Menu utama
 def main():
     while True:
-        print("\n=== Aplikasi Personal Finance ===")
+        print("\n=== Aplikasi Financial Check-Up ===")
         print("1. Tambah Data")
         print("2. Tampilkan Data")
         print("3. Update Data") 

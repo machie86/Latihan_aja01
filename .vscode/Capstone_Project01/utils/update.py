@@ -21,7 +21,7 @@ def update_data():
         if not item:
             print("ID data tidak ditemukan.")
             return
-
+        
         print(f"Data dengan ID {id_update} ditemukan.")
         while True:
             print("\nPilih data yang ingin diupdate:")
