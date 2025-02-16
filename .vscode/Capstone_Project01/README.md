@@ -22,7 +22,7 @@ Aplikasi ini adalah sebuah program Python sederhana untuk mengelola data keuanga
 2. **Menu Utama**:
    - Setelah program dijalankan, Anda akan melihat menu utama dengan pilihan:
      ```
-     === Aplikasi Personal Finance ===
+     === Aplikasi Financial Check-Up ===
      1. Tambah Data
      2. Tampilkan Data
      3. Update Data
