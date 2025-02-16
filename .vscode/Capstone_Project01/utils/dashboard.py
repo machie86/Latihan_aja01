@@ -6,19 +6,20 @@ import random
 
 from .validasi import input_string, input_angka, generate_id, konfirmasi, hitung_umur, hitung_status_keuangan
 
-# 
-from rich.console import Console
-from rich.table import Table
-from rich.panel import Panel
-from rich.text import Text
+#rich adalah library yang digunakan untuk membuat tampilan lebih menarik di terminal.
+from rich.console import Console #Console, untuk mencetak teks berwarna dan format menarik ke terminal.
+from rich.table import Table #Table, untuk membuat tabel yang berwarna dan terstruktur.
+from rich.panel import Panel #Panel, untuk menampilkan teks di dalam kotak panel yang menarik.
+from rich.text import Text #Text, untuk mengelola teks dengan gaya tertentu.
 
-def report_dashboard():
+# Fungsi report (dashboard)
+def report_dashboard(): #untuk menampilkan data keuangan dalam bentuk tabel yang rapi dan informatif menggunakan library Rich.
     from main import data_keuangan
     if not data_keuangan:
         print("Belum ada data yang tersedia.\n")
         return
 
-    console = Console()
+    console = Console() #membuat objek console dari rich.console.Console(), yang memungkinkan kita mencetak teks berformat di terminal.
 
     # Data untuk visualisasi
     nama = [item["nama"] for item in data_keuangan]
@@ -34,7 +35,7 @@ def report_dashboard():
     jumlah_tidak_aman = status_keuangan.count("tidak aman")
 
     # 1. Ringkasan Status Keuangan
-    console.print(Panel.fit("[bold cyan]Ringkasan Status Keuangan[/bold cyan]", padding=(1, 2)))
+    console.print(Panel.fit("[bold cyan]Ringkasan Status Keuangan[/bold cyan]", padding=(1, 2))) #console.print(Panel.fit("[bold cyan]..), menampilkan judul dengan warna cyan dalam panel.
     status_table = Table(show_header=True, header_style="bold magenta")
     status_table.add_column("Status", justify="center")
     status_table.add_column("Jumlah", justify="center")

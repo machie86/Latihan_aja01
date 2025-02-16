@@ -1,12 +1,12 @@
 #---------- UPDATE -------------
 
-from tabulate import tabulate # untuk menampilkan dalam bentuk tabel
-from datetime import datetime # 
-import random
+from tabulate import tabulate
+from datetime import datetime
 
 from .validasi import input_string, input_angka, generate_id, konfirmasi, hitung_umur, hitung_status_keuangan
 from .read import tampilkan_data
 
+# fungsi memperbarui data (update)
 def update_data():
     from main import data_keuangan
     if not data_keuangan:
@@ -16,8 +16,8 @@ def update_data():
     while True:
         tampilkan_data()
         id_update = input("Masukkan ID data yang ingin diupdate: ").strip().upper()
-        item = next((item for item in data_keuangan if item["ID"] == id_update), None)
-
+        item = next((item for item in data_keuangan if item["ID"] == id_update), None) #next, adalah fungsi bawaan Python yang mengambil elemen berikutnya dari sebuah iterator atau generator. 
+                                                            #none, adalah nilai default yang akan dikembalikan jika generator tidak menghasilkan apa pun (artinya, tidak ada item yang cocok).
         if not item:
             print("ID data tidak ditemukan.")
             return
@@ -59,6 +59,7 @@ def update_data():
             print("Data berhasil diupdate!\n")
 
         tampilkan_data(lambda x: x["ID"] == id_update)  # Tampilkan data yang baru diupdate
+                                                # x["ID"] == id_update, memeriksa apakah nilai x["ID"] (ID dari item saat ini) sama dengan id_update.
 
         # Konfirmasi apakah ingin mengupdate data lagi
         if not konfirmasi("Apakah Anda ingin mengupdate data lainnya? (ya/tidak): "):

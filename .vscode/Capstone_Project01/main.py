@@ -1,10 +1,10 @@
 #-------------MAIN----------------
 
-from tabulate import tabulate # untuk menampilkan dalam bentuk tabel
-from datetime import datetime # 
+from tabulate import tabulate
+from datetime import datetime 
 import random
 
-
+#utils, adalah folder/module yang berisi beberapa fungsi tambahan, dimana fungsi tambahan diberi nama alias agar mudah digunakan untuk kode.
 from utils import create as cr, read as re, update as up, delete as de, restore as rs, dashboard as db, validasi as va
 
 # List untuk menyimpan data
@@ -31,6 +31,7 @@ def main():
         print("5. Restore Data")
         print("6. Tampilkan Dashboard")
         print("7. Keluar")
+
         pilihan = input("Pilih menu (1/2/3/4/5/6/7): ").strip()
 
         if pilihan == "1":

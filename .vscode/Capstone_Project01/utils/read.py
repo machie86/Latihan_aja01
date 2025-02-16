@@ -1,27 +1,28 @@
 #----------- READ --------------------
 
-from tabulate import tabulate # untuk menampilkan dalam bentuk tabel
-from datetime import datetime # 
-import random
+from tabulate import tabulate 
 
 from .validasi import input_string, input_angka, generate_id, konfirmasi
 
-def tampilkan_data(filter_func=None):
+# fungsi menampilkan data (read)
+def tampilkan_data(filter_func=None): #filter_func, fungsi filter opsional untuk menampilkan data yang sesuai dengan kriteria tertentu 
+                                        #filter_func=None, filter_func tidak ada --> data ditampilkan semua (data_keuangan)
     from main import data_keuangan
     if not data_keuangan:
         print("Belum ada data yang tersedia.\n")
         return
 
-    data_tampil = list(filter(filter_func, data_keuangan)) if filter_func else data_keuangan
+    data_tampil = list(filter(filter_func, data_keuangan)) if filter_func else data_keuangan #list(filter(...)), mengonversi hasil filter menjadi list.
     headers = ["ID", "Nama", "Umur", "Asal", "Pendapatan", "Pengeluaran", "Tabungan", "Status Keuangan"]
     rows = [[item["ID"], item["nama"], item["umur"], item["asal"], f"Rp {item['pendapatan']:,}", f"Rp {item['pengeluaran']:,}", f"Rp {item['tabungan']:,}", item["status keuangan"]] for item in data_tampil]
     print("\n=== Data Keuangan ===")
-    print(tabulate(rows, headers=headers, tablefmt="grid"))
-    print()
+    print(tabulate(rows, headers=headers, tablefmt="grid")) #rows, List comprehension untuk membuat baris-baris data yang berisi nilai dari dictionary (data_keuangan)
+    print()                #headers, daftar header untuk tabel, #tablefmt="grid", tableframenya menggunakan tipe grid
 
+# fungsi menu filter data (filter)
 def filter_data_menu():
     from main import data_keuangan
-    data_tampil = data_keuangan.copy()
+    data_tampil = data_keuangan.copy() #data_tampil = data_keuangan.copy(), untuk mmbuat salinan list data_keuangan untuk di-filter tanpa mengubah data asli.
 
     while True:
         print("\nPilih kriteria filter:")
@@ -58,9 +59,11 @@ def filter_data_menu():
 
         if not data_tampil:
             print("Tidak ada data yang sesuai dengan kriteria filter.")
-            continue
+            return
 
         if not konfirmasi("Apakah Anda ingin menambahkan filter lainnya? (ya/tidak): "):
             break
 
-    tampilkan_data(lambda item: item in data_tampil)
+    tampilkan_data(lambda item: item in data_tampil) # lambda, menampilkan data yang sudah di-filter. 
+                                        #lambda akan memeriksa apakah setiap item dalam data_keuangan ada di dalam data_tampil. Jika ada, item tersebut akan ditampilkan.
+
